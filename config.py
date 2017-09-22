@@ -1,39 +1,9 @@
-# config.py
-import os
-basedir = os.path.abspath(os.path.dirname(__file__))
+WTF_CSRF_ENABLED = True
+SECRET_KEY = '2342342355'
 
-
-class Config(object):
-    """"
-    Common configurations
-    """
-
-    DEBUG = False
-    TESTING = False
-    CSRF_ENABLED = True
-    SECRET_KEY = ''
-    SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL']
-
-
-class ProductionConfig(Config):
-    DEBUG = False
-
-
-class StagingConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class DevelopmentConfig(Config):
-    DEVELOPMENT = True
-    DEBUG = True
-
-
-class TestingConfig(Config):
-    TESTING = True
-
-
-app_config = {
-    "development": DevelopmentConfig,
-    "production": ProductionConfig
-}
+OPENID_PROVIDERS = [
+    {'name': 'Google', 'url': 'https://www.google.com/accounts/o8/id'},
+    {'name': 'Yahoo', 'url': 'https://me.yahoo.com'},
+    {'name': 'AOL', 'url': 'http://openid.aol.com/<username>'},
+    {'name': 'Flickr', 'url': 'http://www.flickr.com/<username>'},
+    {'name': 'MyOpenID', 'url': 'https://www.myopenid.com'}]
